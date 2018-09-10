@@ -61,7 +61,13 @@ console.log(this.RETORNO);
 if(this.RETORNO == '1'){
 
  this.LoadingFecha();
- swal("Telefone já registrado!", "Tente outro telefone ou tente realizar um login", "error");
+ swal({
+  title: "Alguma coisa deu errado!",
+  text: "Já existe um cadastro para este número.",
+  icon: "error",
+  buttons: false,
+  timer: 3000,
+});
 
 }else{
 

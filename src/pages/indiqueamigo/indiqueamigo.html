@@ -2,20 +2,21 @@
 
 
 <ion-content padding>
-<div style="height: 120px;"></div>
-<h3 style="text-align: center; color: #fff;">Indique 3 amigos e ganhe<br> <span style="color: #ff1b55 !important; ">50 pontos</span> para você bombar</h3>
+  <div style="height: 120px;"></div>
+  <h4 style="text-align: center; color: #fff;">Indique 3 amigos e ganhe<br> <b style="color: #ff1b55 !important; ">50 pontos</b> para você bombar</h4>
 
 
-<button ion-button full class="btn-avancar" (click)="compartilharFacebook()" style="background-color: #3D5C9D;">
-  Indicar amigos pelo Facebook
-</button>
+  <div style="padding: 0px 30px 0px 30px; margin-top: 15px">
+  <button ion-button full class="btn-indicar" (click)="compartilharFacebook()" style="background-color: #3D5C9D;">
+    <span style="text-transform: capitalize !important;">Indicar </span>&nbsp; <span style="text-transform: lowercase;">amigos pelo </span>&nbsp; <span style="text-transform: capitalize !important;"> Facebook</span>
+  </button>
+  <div style="height: 2px;"></div>
+  <button ion-button full class="btn-indicar" (click)="compartilharWhats()" style="background-color: #00E676;">
+      <span style="text-transform: capitalize !important;">Indicar</span> &nbsp; <span style="text-transform: lowercase;">amigos pelo </span>&nbsp;  <span style="text-transform: capitalize !important;">Whatsapp</span>
+  </button>
+  </div>
 
-<button ion-button full class="btn-avancar" (click)="compartilharWhats()" style="background-color: #1EBEA5;">
-  Indicar amigos pelo Whatsapp
-</button>
-
-
-</ion-content>
-<ion-footer class="ion-footer" style="line-height: 60px; text-align: center; border-top: 1px solid #383838;">
-<span style="color: #fff; text-algin: right; " (click)="pular()">PULAR</span>
-</ion-footer>
+  </ion-content>
+  <ion-footer class="ion-footer" style="line-height: 60px; padding-right: 20px; text-align: right; ">
+  <span style="color: #fff; text-algin: right; font-size: 16px" (click)="pular()">Pular</span>
+  </ion-footer>

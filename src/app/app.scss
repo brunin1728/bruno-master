@@ -1,3 +1,18 @@
+@font-face {
+  font-family: Muli;
+  src:url('../assets/fonts/muli.woff2');
+}
+
+p,ion-item,h1,h2,h3,h4,h5,h6,ion-title,ion-label,ion-title,button,span,ion-button{
+  font-family: Muli !important;
+  font-style: normal  !important;
+  font-weight: 400  !important;
+}
+
+b{
+  font-family: Muli !important;
+}
+
 .ion-item{
   background-color: #343434;
   border-bottom: 1px solid transparent !important;
@@ -25,6 +40,19 @@
   border: 2px solid #343434;
   border-radius: 5px;
   height: 45px !important;
+  text-transform: capitalize !important;
+  font-size: 18px;
+
+}
+
+
+.btn-indicar {
+  background-color: transparent;
+  border: 2px solid #343434;
+  border-radius: 5px;
+  height: 45px !important;
+ // text-transform: capitalize !important;
+  font-size: 16px;
 }
 
 .toolbar-background {
@@ -87,4 +115,32 @@ ion-header ion-icon.back-button-icon.icon {
   text-align: center;
   width: 60px;
   white-space: nowrap;
+}
+
+
+//ALERTAS
+.swal-overlay {
+  //background-color: rgba(255, 255, 255, 0.45);
+
+}
+
+.swal-title {
+  font-family: Muli !important;
+  font-style: bold  !important;
+  font-weight: 800  !important;
+  font-size: 20px;
+  color: #000
+
+}
+
+.swal-text {
+  font-family: Muli !important;
+  font-style: normal  !important;
+  font-weight: 400  !important;
+  text-align: center;
+  color: #000
+}
+
+.swal-modal {
+  max-width: 80%;
 }

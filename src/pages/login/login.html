@@ -1,44 +1,44 @@
 <ion-header>
-    <ion-navbar>
+  <ion-navbar>
 
-    </ion-navbar>
-  </ion-header>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
-    <div style="height: 60px"></div>
+  <div style="height: 60px"></div>
 
-    <p style="color: #fff; text-align: center;"><img src="assets/imgs/logo.png" width="200px" >
-    <br>
-    <br>
-    Cadastre-se e descubra quais lugares
-    <br>
-    estão <b style="color: #ff1b55">bombando</b>. Junta-se
-    <br>
-    ao seus amigos!
-    </p>
+  <p style="color: #fff; text-align: center;"  class="font-padrao"><img src="assets/imgs/logo.png" width="200px" >
+  <br>
+  <br>
+  Cadastre-se e descubra quais lugares
+  <br>
+  estão <b style="color: #ff1b55">bombando</b>. Junte-se
+  <br>
+  ao seus amigos!
+  </p>
 
 <br>
-    <h6 style="color: #ff1b55; text-align: left;">Digite suas informações</h6>
+  <h6 style="color: #ff1b55; text-align: left;">Digite suas informações</h6>
 
-    <ion-list>
-      <ion-item class="ion-item" style="">
+  <ion-list>
+    <ion-item class="ion-item" style="">
 
-        <ion-input type="tel" value="" placeholder="Telefone" class="ion-input3" [(ngModel)]="TELEFONE" allowedChars="0-9" [brmasker]="{phone: true}" style="color: #fff !important;"></ion-input>
+      <ion-input type="tel" value="" placeholder="Telefone" class="ion-input3" [(ngModel)]="TELEFONE" allowedChars="0-9" [brmasker]="{phone: true}" style="color: #fff !important;"></ion-input>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item class="ion-item" style="">
+
+        <ion-input type="password" value="" placeholder="Senha" class="ion-input3" [(ngModel)]="SENHA" autocomplete="new-password" style="color: #fff !important;"></ion-input>
 
       </ion-item>
-    </ion-list>
 
-    <ion-list>
-      <ion-item class="ion-item" style="">
+  </ion-list>
 
-          <ion-input type="password" value="" placeholder="Senha" class="ion-input3" [(ngModel)]="SENHA" autocomplete="new-password" style="color: #fff !important;"></ion-input>
-
-        </ion-item>
-
-    </ion-list>
-
-    <button ion-button full class="btn-avancar" (click)="login()">
-      Entrar
-    </button>
+  <button ion-button full class="btn-avancar" (click)="login()">
+    Entrar
+  </button>
 
 </ion-content>
