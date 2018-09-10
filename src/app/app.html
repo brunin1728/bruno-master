@@ -1,0 +1,29 @@
+<ion-menu [content]="content" class="myMenu" id="myMenu">
+  <ion-header>
+    <ion-toolbar>
+        <ion-title><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <br>
+      <ion-item>
+          <ion-avatar item-start>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+          </ion-avatar>
+          <h2><b>{{NOME}}</b></h2>
+          <p style="color: #d01147">120 pontos <ion-icon name="md-star"></ion-icon></p>
+        </ion-item>
+
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+       {{p.title}}  <b><ion-icon name="ios-arrow-forward-outline" style="float: right; color: #d01147;"></ion-icon></b>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

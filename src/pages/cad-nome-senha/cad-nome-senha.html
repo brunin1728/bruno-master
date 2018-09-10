@@ -1,0 +1,27 @@
+<ion-content padding>
+<div style="height: 60px"></div>
+
+<h3 style="color: #fff; text-align: center;">Digite o seu Telefone</h3>
+<h6  style="color: #fff; text-align: center;">Adicione seu Nome para que seus<br> amigos possam encontrar você.</h6>
+<br>
+<ion-list>
+
+
+  <ion-item class="ion-item" style="">
+
+    <ion-input type="text" value="" placeholder="Nome completo" class="ion-input2" [(ngModel)]="NOME"></ion-input>
+  </ion-item>
+
+</ion-list>
+<ion-list>
+
+  <ion-item class="ion-item" style="">
+
+    <ion-input type="password" value="" placeholder="Senha" class="ion-input2" [(ngModel)]="SENHA"></ion-input>
+  </ion-item>
+</ion-list>
+
+<button ion-button full class="btn-avancar" (click)="avancar()">
+  Avançar
+</button>
+</ion-content>

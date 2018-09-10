@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<div style="height: 60px"></div>
+
+<h6 style="color: #ff1b55; text-align: center;">Digite o seu Telefone</h6>
+<br>
+<ion-list>
+
+  <ion-item class="ion-item" style="">
+    <ion-label fixed class="ion-label" >BR +55 <span style="color: #7c7c7c">|</span></ion-label>
+    <ion-input type="text" value="" placeholder="Telefone" class="ion-input" [(ngModel)]="TELEFONE" [brmasker]="{mask:'(00) 00000-0000', len:15}"></ion-input>
+  </ion-item>
+
+
+</ion-list>
+  <br>
+<button ion-button full class="btn-avancar" (click)="avancar()">
+  Avançar
+</button>
+</ion-content>

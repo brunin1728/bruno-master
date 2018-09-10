@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"  class="text-colorB"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-list *ngFor="let feed of DADOS" (click)="pegarCupom(feed)">
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img [src]="feed.IMAGEM">
+    </ion-thumbnail>
+    <h2>{{feed.TITULO}}</h2>
+    <p>{{feed.PONTOS}} Pontos</p>
+
+  </ion-item>
+</ion-list>
+
+
+</ion-content>

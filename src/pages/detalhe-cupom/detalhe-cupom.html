@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-title><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<img src="{{IMAGEM}}" width="100%" style="padding-left: 60px; padding-right: 60px; ">
+
+<ion-grid>
+  <ion-row>
+
+    <ion-col col-4 style="text-align: center;  color: #d01147">
+
+    <ion-icon name="ios-cart"  style="font-size: 40px;"></ion-icon>
+    <h6>{{PONTOS}} <br>Pontos</h6>
+    </ion-col>
+
+    <ion-col col-4 style="text-align: center; color: #d01147">
+
+    <ion-icon name="beer" style="font-size: 40px;"></ion-icon>
+    <h6>{{QTD}} <br>Disponiveis</h6>
+    </ion-col>
+
+    <ion-col col-4 style="text-align: center; color: #d01147" (click)="comprar()">
+
+    <ion-icon name="checkmark" style="font-size: 40px;" ></ion-icon>
+    <h6>Adquirir <br> agora</h6>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+</ion-content>
