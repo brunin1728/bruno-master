@@ -28,7 +28,7 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
 import { GeraQrPage } from '../pages/gera-qr/gera-qr';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import { GeraQrPage } from '../pages/gera-qr/gera-qr';
     IonicModule.forRoot(MyApp),
     BrMaskerModule,
     HttpModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
