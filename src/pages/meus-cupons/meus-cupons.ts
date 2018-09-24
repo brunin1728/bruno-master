@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { DetalheCupomPage } from '../detalhe-cupom/detalhe-cupom';
+import { GeraQrPage } from '../gera-qr/gera-qr';
 
 
 
@@ -65,7 +66,7 @@ this.LoadingFecha();
 }
 
 pegarCupom(feed){
-  this.navCtrl.push(DetalheCupomPage, { dados: feed});
+  this.navCtrl.push(GeraQrPage, { dados: feed});
 }
 
 

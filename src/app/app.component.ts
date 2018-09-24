@@ -77,7 +77,6 @@ etapas(){
     this.initializeApp();
 
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Início', component: HomePage },
       { title: 'Perfil', component: PerfilPage },
