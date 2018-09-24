@@ -65,7 +65,6 @@ if(this.RETORNO == '1'){
   title: "Alguma coisa deu errado!",
   text: "Já existe um cadastro para este número.",
   icon: "error",
-  buttons: false,
   timer: 3000,
 });
 
