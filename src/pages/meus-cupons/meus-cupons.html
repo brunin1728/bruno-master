@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"  class="text-colorB"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list >
+    <ion-item no-lines *ngFor="let feed of DADOS" (click)="pegarCupom(feed)" class="item-cupons">
+      <ion-thumbnail item-start >
+        <img [src]="'assets/icon/coins.png'" style="padding: 20px">
+      </ion-thumbnail>
+      <h6>{{feed.TITULO}}</h6>
+      <p style="color: #d01147">Não usado</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

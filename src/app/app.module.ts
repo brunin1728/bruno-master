@@ -26,6 +26,8 @@ import { HttpModule } from '@angular/http';
 import { DetalheCupomPage } from '../pages/detalhe-cupom/detalhe-cupom';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
+import { GeraQrPage } from '../pages/gera-qr/gera-qr';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     SlidePage,
     CuponsPage,
     DetalhePage,
-    DetalheCupomPage
+    DetalheCupomPage,
+    MeusCuponsPage,
+    GeraQrPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     SlidePage,
     CuponsPage,
     DetalhePage,
-    DetalheCupomPage
+    DetalheCupomPage,
+    MeusCuponsPage,
+    GeraQrPage
   ],
   providers: [
     StatusBar,

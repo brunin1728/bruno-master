@@ -18,9 +18,11 @@ import swal from 'sweetalert';
 })
 
 export class CadTelPage {
+
    public TELEFONE = this.navParams.get('TELEFONE');
    loader: any;
    public RETORNO: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

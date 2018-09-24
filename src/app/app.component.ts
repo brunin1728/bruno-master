@@ -15,6 +15,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaBarPage } from '../pages/lista-bar/lista-bar';
 import { ApiProvider } from '../providers/api/api';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
+import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
 
 
 
@@ -80,6 +81,7 @@ etapas(){
     this.pages = [
       { title: 'Início', component: HomePage },
       { title: 'Perfil', component: PerfilPage },
+      { title: 'Meus Cupons', component: MeusCuponsPage },
       { title: 'Lista Bares', component: ListaBarPage },
       { title: 'Voucher', component: CuponsPage }
     ];
