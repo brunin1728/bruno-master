@@ -31,6 +31,7 @@ export class HomePage {
   public LONGITUDE: any;
   public lat: any;
   public log: any;
+  public retorno: any;
 
   constructor(
     public navCtrl: NavController,
@@ -64,7 +65,7 @@ this.backgroundGeolocation.configure(config)
   this.LONGITUDE = localStorage.setItem("LONGITUDE", this.log);
 
 this.carregarFeed();
-
+this.localiza("-22.4169984","-42.9756726",this.LATITUDE,this.LONGITUDE);
 this.backgroundGeolocation.finish();
 
 });
@@ -218,6 +219,52 @@ setMarkers(map) {
     });
   }
 }
+
+
+
+
+
+//VERIFICAR LOCAL DO USUÁRIO
+localiza(a,b,c,d){
+
+
+  let lat1 = a;
+  let lon1 = b;
+  let lat2 = c;
+  let lon2 = d;
+
+  this.retorno = Dist(lat1, lon1, lat2, lon2); //Quilómetros de retorno
+  let total = this.retorno * 1000;
+
+  if(total <= 30){
+  alert(total);
+  }
+  function Dist(lat1, lon1, lat2, lon2)
+    {
+    let rad = function(x) {return x*Math.PI/180;}
+
+    var R     = 6378.137;                  //Raio da Terra no km (WGS84)
+    var dLat  = rad( lat2 - lat1 );
+    var dLong = rad( lon2 - lon1 );
+
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+
+    return d.toFixed(3);                   //Retorno 3 casas decimais
+  }
+
+
+
+
+
+}
+
+
+
+
+
+
 
 
 }
