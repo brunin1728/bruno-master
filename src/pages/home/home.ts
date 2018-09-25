@@ -1,10 +1,13 @@
 import { DetalhePage } from './../detalhe/detalhe';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, Platform, AlertController } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { ApiProvider } from '../../providers/api/api';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import swal from 'sweetalert';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 declare var google;
 
@@ -12,7 +15,8 @@ declare var google;
   selector: 'page-home',
   templateUrl: 'home.html',
   providers: [
-    ApiProvider
+    ApiProvider,
+    LocalNotifications
   ]
 })
 
@@ -32,16 +36,32 @@ export class HomePage {
   public lat: any;
   public log: any;
   public retorno: any;
+  data = { title:'', description:'', date:'', time:'' };
+
 
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
     private geolocation: Geolocation,
-    private backgroundGeolocation: BackgroundGeolocation
+    private backgroundGeolocation: BackgroundGeolocation,
+    public localNotifications: LocalNotifications,
+    public platform: Platform,
+    public alertCtrl: AlertController
     ) {
 
   }
+
+
+
+
+
+
+
+
+
+
+
 
 
 geo(){
@@ -52,7 +72,7 @@ geo(){
     distanceFilter: 30,
     debug: false,
     stopOnTerminate: false,
-    interval: 1
+    interval: 10000
 };
 
 this.backgroundGeolocation.configure(config)
@@ -65,7 +85,7 @@ this.backgroundGeolocation.configure(config)
   this.LONGITUDE = localStorage.setItem("LONGITUDE", this.log);
 
 this.carregarFeed();
-this.localiza("-22.4169984","-42.9756726",this.LATITUDE,this.LONGITUDE);
+this.localiza('-22.4117566','-42.9663352',this.lat,this.log);
 this.backgroundGeolocation.finish();
 
 });
@@ -236,8 +256,8 @@ localiza(a,b,c,d){
   this.retorno = Dist(lat1, lon1, lat2, lon2); //Quilómetros de retorno
   let total = this.retorno * 1000;
 
-  if(total <= 30){
-  alert(total);
+  if(total <= 50){
+    this.submit();
   }
   function Dist(lat1, lon1, lat2, lon2)
     {
@@ -261,10 +281,33 @@ localiza(a,b,c,d){
 }
 
 
+//LOCAL NOTIFICAÇÃO
+submit() {
 
 
+  this.localNotifications.schedule({
+    id: 1,
+    title: 'Você esta no qualivita?',
+    text: 'Confirme e ganhe um cupom!',
+    icon: 'file://assets/icon/local-push.png'
+  });
 
+  swal({
+    title: "Você esta no Espaço Qualivita?",
+    icon: "warning",
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Você ganhou 5 pontos!", {
+        icon: "success",
+      });
+    } else {
+     // swal("Your imaginary file is safe!");
+    }
+  });
 
+}
 
 
 }

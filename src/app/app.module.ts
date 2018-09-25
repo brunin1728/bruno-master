@@ -29,6 +29,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
 import { GeraQrPage } from '../pages/gera-qr/gera-qr';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 @NgModule({
   declarations: [
@@ -83,6 +85,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     ApiProvider,
     BackgroundGeolocation,
     Geolocation,
+    LocalNotifications
   ]
 })
 export class AppModule {}
