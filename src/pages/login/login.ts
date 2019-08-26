@@ -67,9 +67,8 @@ if(this.DADOS.STATUS == '1'){
   window.location.reload();
 
 }else{
-  swal("Usuário ou senha incorreto!", "Tente novamente ou resete sua senha.", "error");
+    swal("Usuário ou senha incorreto!", "Tente novamente ou resete sua senha.", "error");
 }
-
 
     this.LoadingFecha();
 

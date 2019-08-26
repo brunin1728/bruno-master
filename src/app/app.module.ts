@@ -30,7 +30,7 @@ import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
 import { GeraQrPage } from '../pages/gera-qr/gera-qr';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -85,7 +85,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ApiProvider,
     BackgroundGeolocation,
     Geolocation,
-    LocalNotifications
+    LocalNotifications,
+    InAppBrowser
   ]
 })
 export class AppModule {}

@@ -7,10 +7,10 @@
 <ion-content>
 <ion-slides style="height: auto !important" autoplay="5000" loop="true" speed="500">
   <ion-slide>
-    <img src="https://www.baressp.com.br/bares/fotos/barleo1.jpg" width="100%">
+    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
   </ion-slide>
   <ion-slide>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHgf0NnO3DOmeRd5CLiHhvMA4qG_wQmmxEfwYQdsLQzSZWVAy" width="100%">
+    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
   </ion-slide>
 </ion-slides>
 <div padding>
@@ -31,10 +31,14 @@
     <p>Telefone</p>
     </ion-col>
 
-    <ion-col col-4 style="text-align: center; color: #d01147">
+    <ion-col col-4 style="text-align: center; color: #d01147" >
 
-    <ion-icon name="md-map" style="font-size: 40px;"></ion-icon>
+
+    <ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
     <p>Mapa</p>
+
+
+
     </ion-col>
 
     <ion-col col-4 style="text-align: center; color: #d01147" >

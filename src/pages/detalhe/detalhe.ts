@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 @IonicPage()
 @Component({
@@ -24,17 +26,24 @@ export class DetalhePage {
   public LATITUDE: any;
   public LONGITUDE: any;
   public ID: any;
+  public IMAGEM: any;
 
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
-    public ApiProvider: ApiProvider
+    public ApiProvider: ApiProvider,
+    private iab: InAppBrowser
     ) {
   }
 
+mapa(){
+  let location = "geo:?q=" + this.LATITUDE + "," + this.LONGITUDE;
+  console.log(location);
 
+  const browser = this.iab.create(location, '_system');
+}
 
 
 
@@ -54,7 +63,7 @@ FechaCarregando(){
   ionViewDidEnter() {
     this.AbreCarregando();
     this.feedid = this.navParams.get("id");
-console.log(this.feedid);
+
 
 
     this.ApiProvider.DetalhesBar(this.feedid).subscribe(
@@ -69,6 +78,7 @@ console.log(this.feedid);
         this.LATITUDE = this.feed.LATITUDE;
         this.LONGITUDE = this.feed.LONGITUDE;
         this.ID = this.feed.ID_EMP;
+        this.IMAGEM = this.feed.IMAGEM;
 
       }, error =>{
          console.log(error);
