@@ -10,7 +10,7 @@
 
 <ion-content padding>
     <ion-card-content  style="text-align: center;">
-<img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png" class="circle-pic" >
+<img [src]="'https://bom.bar/app/images/usuarios/' + FOTO" class="circle-pic" >
 <h2> {{NOME}} </h2>
 <!--
 <ion-grid >
@@ -46,7 +46,7 @@
 <ion-list>
     <ion-item no-lines *ngFor="let feed of CUPONS" class="item-cupons">
       <ion-thumbnail item-start >
-        <img [src]="'assets/icon/coins.png'" style="padding: 20px">
+        <img src="assets/icon/coins.png" style="padding: 20px">
       </ion-thumbnail>
       <h6>{{feed.TITULO}}</h6>
       <p style="color: #d01147">Não usado</p>

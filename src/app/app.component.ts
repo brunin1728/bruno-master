@@ -30,6 +30,7 @@ export class MyApp {
   private IF_ETAPA = localStorage.getItem('ETAPA') ? localStorage.getItem('ETAPA').length : null;
   private ETAPA: any;
   public NOME: any;
+  public FOTO_PERFIL: any;
 
 
   rootPage: any;
@@ -42,6 +43,7 @@ export class MyApp {
 etapas(){
 
   this.NOME = localStorage.getItem('NOME');
+  this.FOTO_PERFIL = localStorage.getItem('FOTO');
   this.ETAPA = localStorage.getItem('ETAPA');
 
   if(this.IF_ETAPA == null){

@@ -61,7 +61,9 @@ salvar(nome,telefone,senha){
 
 if(this.RETORNO.STATUS == '1'){
   localStorage.setItem("USUARIO", this.RETORNO.ID);
+
   this.navCtrl.setRoot(IndiqueamigoPage);
+
   this.LoadingFecha();
 }else{
   this.LoadingFecha();
@@ -85,6 +87,7 @@ if(this.RETORNO.STATUS == '1'){
     localStorage.setItem("NOME", this.NOME);
     localStorage.setItem("SENHA", this.SENHA);
     localStorage.setItem("ETAPA", "2");
+    localStorage.setItem("ACESSO", "0");
     this.salvar(this.NOME, this.TELEFONE, this.SENHA);
 
   }

@@ -73,15 +73,11 @@ if(this.RETORNO == '1'){
 }else{
 
  localStorage.setItem("ETAPA", "1");
+ localStorage.setItem("FOTO", "perfil.jpg");
  localStorage.setItem("TELEFONE", this.TELEFONE);
  this.navCtrl.setRoot(CadNomeSenhaPage);
  this.LoadingFecha();
- swal({
-  title: "PARABÉNS!",
-  text: "Você ganhou 10 pontos por se cadastrar!",
-  icon: "success",
-  timer: 3000,
-});
+
 }
 
    },error=>{

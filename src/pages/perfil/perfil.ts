@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-
+import swal from 'sweetalert';
 
 
 @IonicPage()
@@ -17,6 +17,7 @@ export class PerfilPage {
   loader: any;
   public PONTOS: any;
   public CUPONS: any;
+  public FOTO: any;
   public NOME: any = localStorage.getItem("NOME");
 
   constructor(
@@ -55,9 +56,10 @@ DadosUsuario(){
       const objeto_retorno = JSON.parse(response._body);
 
         this.PONTOS = objeto_retorno.TOTAL;
+        this.FOTO = objeto_retorno.FOTO;
 
 
-console.log(this.PONTOS);
+console.log(this.FOTO);
 this.LoadingFecha();
 
   },error=>{

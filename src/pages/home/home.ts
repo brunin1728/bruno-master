@@ -37,6 +37,7 @@ export class HomePage {
   public log: any;
   public retorno: any;
   data = { title:'', description:'', date:'', time:'' };
+  private ACESSO: any = localStorage.getItem("ACESSO");
 
 
   constructor(
@@ -49,6 +50,8 @@ export class HomePage {
     public platform: Platform,
     public alertCtrl: AlertController
     ) {
+      this.bemvindo();
+      this.geo2();
 
   }
 
@@ -56,12 +59,43 @@ export class HomePage {
 
 
 
+bemvindo(){
+  if(this.ACESSO === '0'){
+  swal({
+    title: "PARABÉNS!",
+    text: "Você ganhou 10 pontos por se cadastrar!",
+    icon: "success",
+    timer: 3000,
+  });
+  localStorage.setItem("ACESSO", "1");
+}
+}
 
 
 
 
+geo2(){
+  this.geolocation.getCurrentPosition().then((resp) => {
+    // resp.coords.latitude
+    // resp.coords.longitude
+   }).catch((error) => {
+     console.log('Error getting location', error);
+   });
+
+   let watch = this.geolocation.watchPosition();
+   watch.subscribe((data) => {
+    // data can be a set of coordinates, or an error (if an error occurred).
+    // data.coords.latitude
+    // data.coords.longitude
+    let late = String(data.coords.latitude);
+    let longi = String(data.coords.longitude);
 
 
+    this.LATITUDE = localStorage.setItem("LATITUDE", late);
+    this.LONGITUDE = localStorage.setItem("LONGITUDE", longi);
+    this.carregarFeed();
+   });
+}
 
 
 geo(){
@@ -81,8 +115,8 @@ this.backgroundGeolocation.configure(config)
   this.log = location.longitude;
 
 
-  this.LATITUDE = localStorage.setItem("LATITUDE", this.lat);
-  this.LONGITUDE = localStorage.setItem("LONGITUDE", this.log);
+  //this.LATITUDE = localStorage.setItem("LATITUDE", this.lat);
+ // this.LONGITUDE = localStorage.setItem("LONGITUDE", this.log);
 
 this.carregarFeed();
 this.localiza('-22.4117566','-42.9663352',this.lat,this.log);
@@ -222,6 +256,7 @@ setMarkers(map) {
   };
   for (var i = 0; i < this.beaches.length; i++) {
     var beach = this.beaches[i];
+    var idb = beach[4];
     var marker = new google.maps.Marker({
       position: {lat: beach[1], lng: beach[2]},
       map: map,
@@ -233,11 +268,18 @@ setMarkers(map) {
       },
       icon: "assets/imgs/icone_local_mapa.png"
     });
-    google.maps.event.addListener(marker, 'click', () => {
+
+
+
+
+  }
+
+  google.maps.event.addListener(marker, 'click', () => {
       //infoWindow.open(this.map, marker);
       this.navCtrl.push(DetalhePage, {id: beach[4]});
+      console.log(idb);
+
     });
-  }
 }
 
 
