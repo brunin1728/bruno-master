@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import swal from 'sweetalert';
+import { InicioPage } from '../inicio/inicio';
 
 
 @IonicPage()
@@ -41,7 +42,9 @@ export class PerfilPage {
   }
 
 
-
+sair(){
+  this.navCtrl.setRoot(InicioPage);
+}
 
 
 DadosUsuario(){

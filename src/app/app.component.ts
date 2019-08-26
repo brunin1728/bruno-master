@@ -81,10 +81,11 @@ etapas(){
 
     this.pages = [
       { title: 'Início', component: HomePage },
+      { title: 'Programação', component: HomePage },
       { title: 'Perfil', component: PerfilPage },
-      { title: 'Meus Cupons', component: MeusCuponsPage },
       { title: 'Lista Bares', component: ListaBarPage },
-      { title: 'Voucher', component: CuponsPage }
+      { title: 'Meus Cupons', component: MeusCuponsPage },
+      { title: 'Vouchers', component: CuponsPage },
     ];
 
   }

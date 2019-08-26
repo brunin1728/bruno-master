@@ -269,17 +269,16 @@ setMarkers(map) {
       icon: "assets/imgs/icone_local_mapa.png"
     });
 
+    let e = idb;
 
-
-
-  }
-
-  google.maps.event.addListener(marker, 'click', () => {
+    google.maps.event.addListener(marker, 'click', (e) => {
       //infoWindow.open(this.map, marker);
-      this.navCtrl.push(DetalhePage, {id: beach[4]});
-      console.log(idb);
+      this.navCtrl.push(DetalhePage, {id: idb});
+      console.log(e);
 
     });
+    console.log(idb);
+  }
 }
 
 
