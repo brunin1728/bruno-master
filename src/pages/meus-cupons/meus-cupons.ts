@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { ApiProvider } from '../../providers/api/api';
 import { DetalheCupomPage } from '../detalhe-cupom/detalhe-cupom';
 import { GeraQrPage } from '../gera-qr/gera-qr';
-
+import swal from 'sweetalert';
 
 
 @IonicPage()
@@ -17,6 +17,10 @@ import { GeraQrPage } from '../gera-qr/gera-qr';
 export class MeusCuponsPage {
   loader: any;
   public DADOS: any;
+  public DADOSL: any;
+  cupom: string = "0";
+  isAndroid: boolean = false;
+
 
   constructor(
     public navCtrl: NavController,
@@ -37,9 +41,42 @@ export class MeusCuponsPage {
   this.loader.dismiss();
   }
 
-  ListaCupons(){
+  ListaCuponsLoja(){
     //CADASTRANDO DADOS
  this.LoadingAbre();
+
+
+
+  this.ApiProvider.cupons().subscribe(data=>{
+   //console.log(data);
+       const response = (data as any);
+       const objeto_retorno = JSON.parse(response._body);
+
+         this.DADOSL = objeto_retorno;
+
+
+this.LoadingFecha();
+
+   },error=>{
+     console.log(error);
+     this.LoadingFecha();
+     swal("Algo deu errado...", "Por favor verifique sua internet.", "error");
+   }
+
+
+
+  )
+}
+
+pegarCupomLoja(feed){
+  this.navCtrl.push(DetalheCupomPage, { dados: feed});
+}
+
+
+
+  ListaCupons(){
+    //CADASTRANDO DADOS
+ //this.LoadingAbre();
 
 
 
@@ -52,7 +89,7 @@ export class MeusCuponsPage {
 
 
 console.log(this.DADOS);
-this.LoadingFecha();
+//this.LoadingFecha();
 
    },error=>{
      console.log(error);
@@ -72,6 +109,7 @@ pegarCupom(feed){
 
 ionViewDidEnter() {
   this.ListaCupons();
+  this.ListaCuponsLoja();
 }
 
 }

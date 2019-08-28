@@ -1,3 +1,5 @@
+import { ProgramacaoPage } from './../pages/programacao/programacao';
+import { ConfigPage } from './../pages/config/config';
 import { DetalhePage } from './../pages/detalhe/detalhe';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -49,7 +51,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     DetalhePage,
     DetalheCupomPage,
     MeusCuponsPage,
-    GeraQrPage
+    GeraQrPage,
+    ConfigPage,
+    ProgramacaoPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     DetalhePage,
     DetalheCupomPage,
     MeusCuponsPage,
-    GeraQrPage
+    GeraQrPage,
+    ConfigPage,
+    ProgramacaoPage
   ],
   providers: [
     StatusBar,

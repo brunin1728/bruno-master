@@ -1,3 +1,5 @@
+import { ProgramacaoPage } from './../pages/programacao/programacao';
+import { ConfigPage } from './../pages/config/config';
 import { CuponsPage } from './../pages/cupons/cupons';
 import { InicioPage } from './../pages/inicio/inicio';
 import { Component, ViewChild } from '@angular/core';
@@ -81,11 +83,11 @@ etapas(){
 
     this.pages = [
       { title: 'Início', component: HomePage },
-      { title: 'Programação', component: HomePage },
+      { title: 'Programação', component: ProgramacaoPage },
       { title: 'Perfil', component: PerfilPage },
       { title: 'Lista Bares', component: ListaBarPage },
-      { title: 'Meus Cupons', component: MeusCuponsPage },
-      { title: 'Vouchers', component: CuponsPage },
+      { title: 'Loja', component: MeusCuponsPage },
+      { title: 'Configuração', component: ConfigPage },
     ];
 
   }

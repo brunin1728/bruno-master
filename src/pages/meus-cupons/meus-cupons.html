@@ -10,13 +10,72 @@
 
 
 <ion-content padding>
-  <ion-list >
-    <ion-item no-lines *ngFor="let feed of DADOS" (click)="pegarCupom(feed.CODDE)" class="item-cupons">
-      <ion-thumbnail item-start >
-        <img [src]="'assets/icon/beer.png'" style="padding: 20px">
-      </ion-thumbnail>
-      <h6>{{feed.TITULO}}</h6>
-      <p style="color: #d01147">Não usado</p>
-    </ion-item>
-  </ion-list>
+
+
+
+    <div >
+        <ion-segment [(ngModel)]="cupom">
+          <ion-segment-button value="0" class="tab">
+            Trocar pontos
+          </ion-segment-button>
+          <ion-segment-button value="1" class="tab">
+            Cupons
+          </ion-segment-button>
+          <ion-segment-button value="2" class="tab">
+            Histórico
+          </ion-segment-button>
+        </ion-segment>
+
+        <br>
+      </div>
+
+      <div [ngSwitch]="cupom">
+
+        <ion-list *ngSwitchCase="'0'">
+
+            <ion-list >
+                <ion-item no-lines *ngFor="let feed of DADOSL" (click)="pegarCupomLoja(feed)" class="item-cupons">
+                  <ion-thumbnail item-start >
+                    <img [src]="'assets/icon/beer.png'" style="padding: 20px">
+                  </ion-thumbnail>
+                  <h6>{{feed.TITULO}}</h6>
+                  <p style="color: #d01147">Não usado</p>
+                </ion-item>
+              </ion-list>
+
+
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'1'">
+
+            <ion-list >
+                <ion-item no-lines *ngFor="let feed of DADOS" (click)="pegarCupom(feed.CODDE)" class="item-cupons">
+                  <ion-thumbnail item-start >
+                    <img [src]="'assets/icon/beer.png'" style="padding: 20px">
+                  </ion-thumbnail>
+                  <h6>{{feed.TITULO}}</h6>
+                  <p style="color: #d01147">Não usado</p>
+                </ion-item>
+              </ion-list>
+
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'2'">
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/thumbnail-kitten-1.jpg">
+            </ion-thumbnail>
+            <h2>Luna</h2>
+          </ion-item>
+
+        </ion-list>
+      </div>
+
+
+
+
+
+
 </ion-content>
