@@ -31,6 +31,10 @@ cupons(){
  }
 
 
+catprogramacao(){
+  return this.http.get(this.baseApi + "lista-cat-pro");
+ }
+
  MeusPontos(){
   return this.http.get(this.baseApi + "pontos-usuario&telefone=" + this.TELEFONE);
  }

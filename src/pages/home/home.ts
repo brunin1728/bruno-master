@@ -36,6 +36,8 @@ export class HomePage {
   public lat: any;
   public log: any;
   public retorno: any;
+  public MODO: any = localStorage.getItem("MODO");
+
   data = { title:'', description:'', date:'', time:'' };
   private ACESSO: any = localStorage.getItem("ACESSO");
 
@@ -51,7 +53,12 @@ export class HomePage {
     public alertCtrl: AlertController
     ) {
       this.bemvindo();
-      this.geo2();
+      if(this.MODO == '1'){
+
+      }else{
+        this.geo2();
+      }
+
 
   }
 
@@ -160,9 +167,9 @@ let log = parseFloat(this.lista[i].LONGITUDE);
 
 
 
- console.log(this.total);
+ //console.log(this.total);
 this.beaches = this.total;
-console.log(this.beaches);
+//console.log(this.beaches);
 
 this.initMap();
      this.FechaCarregando();
@@ -274,10 +281,10 @@ setMarkers(map) {
     google.maps.event.addListener(marker, 'click', (e) => {
       //infoWindow.open(this.map, marker);
       this.navCtrl.push(DetalhePage, {id: idb});
-      console.log(e);
+      //console.log(e);
 
     });
-    console.log(idb);
+    //console.log(idb);
   }
 }
 

@@ -11,15 +11,22 @@
 <ion-content padding>
   <ion-list>
 
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png">
-      </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
 
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 *ngFor="let f of DADOS" style="text-align: center">
+          <button style="height: 130px; background-color: #fff" (click)="filtrar(f.ICONE)">
+          <img [src]="f.ICONE"><br>
+          <b style="color: #ff1b55">{{f.NOME}}</b>
+          <br>
+          <br>
+        </button>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-grid>
 
 
 

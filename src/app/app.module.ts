@@ -1,3 +1,4 @@
+import { ProgramacaofilterPage } from './../pages/programacaofilter/programacaofilter';
 import { ProgramacaoPage } from './../pages/programacao/programacao';
 import { ConfigPage } from './../pages/config/config';
 import { DetalhePage } from './../pages/detalhe/detalhe';
@@ -53,7 +54,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     MeusCuponsPage,
     GeraQrPage,
     ConfigPage,
-    ProgramacaoPage
+    ProgramacaoPage,
+    ProgramacaofilterPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     MeusCuponsPage,
     GeraQrPage,
     ConfigPage,
-    ProgramacaoPage
+    ProgramacaoPage,
+    ProgramacaofilterPage
   ],
   providers: [
     StatusBar,
