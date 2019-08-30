@@ -70,6 +70,13 @@ export class HomePage {
   }
 
 
+  detalhe(id){
+    console.log(id);
+
+    this.navCtrl.push(DetalhePage, { id: id});
+  }
+
+
   doRefresh(refresher) {
     this.refresher = refresher;
     this.isRefreshing = true;

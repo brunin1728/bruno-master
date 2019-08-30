@@ -8,8 +8,8 @@
   </ion-header>
 
 
-<ion-content padding>
-    <ion-card  *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
+<ion-content >
+    <!--<ion-card  *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
 
         <ion-item>
           <ion-avatar item-start>
@@ -35,7 +35,28 @@
           </ion-col>
         </ion-row>
 
-      </ion-card>
+      </ion-card>-->
+
+
+      <ion-list >
+
+
+  <ion-item *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
+    <ion-avatar item-start>
+        <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
+    </ion-avatar>
+    <h2>{{feed.NOME}}</h2>
+    <h3>{{feed.DESCRICAO}}</h3>
+    <!--<p>I've had a pretty messed up day. If we just...</p>-->
+    <ion-avatar item-end>
+        <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
+        <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
+    </ion-avatar>
+  </ion-item>
+
+
+
+</ion-list>
 
       <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>

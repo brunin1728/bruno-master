@@ -5,13 +5,12 @@
   </ion-header>
 
 <ion-content>
-<ion-slides style="height: auto !important" autoplay="5000" loop="true" speed="500">
+<ion-slides style="height: auto !important" autoplay="5000" speed="500" *ngIf="IMAGEM">
+
   <ion-slide>
     <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
   </ion-slide>
-  <ion-slide>
-    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
-  </ion-slide>
+
 </ion-slides>
 <div padding>
 <h6 style="color: #d01147">{{NOME}}</h6>

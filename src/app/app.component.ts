@@ -30,6 +30,7 @@ import { MeusCuponsPage } from '../pages/meus-cupons/meus-cupons';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   private IF_ETAPA = localStorage.getItem('ETAPA') ? localStorage.getItem('ETAPA').length : null;
+  private MODO1 = localStorage.getItem('MODO') ? localStorage.getItem('MODO').length : null;
   private ETAPA: any;
   public NOME: any;
   public FOTO_PERFIL: any;
@@ -47,6 +48,10 @@ etapas(){
   this.NOME = localStorage.getItem('NOME');
   this.FOTO_PERFIL = localStorage.getItem('FOTO');
   this.ETAPA = localStorage.getItem('ETAPA');
+
+  if(this.MODO1 == null){
+    localStorage.setItem('MODO', '1');
+  }
 
   if(this.IF_ETAPA == null){
      this.rootPage = InicioPage;

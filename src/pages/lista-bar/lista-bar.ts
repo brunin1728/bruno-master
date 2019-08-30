@@ -73,7 +73,7 @@ doInfinite(infiniteScroll) {
         this.listafeed = objeto_retorno.EMPRESAS;
       }
 
-  //console.log(objeto_retorno.EMPRESAS);
+  console.log(objeto_retorno.EMPRESAS);
 
 
      this.FechaCarregando();

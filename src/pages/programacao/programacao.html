@@ -8,27 +8,19 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
+<ion-content class="card-background-page ">
 
 
 
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4 *ngFor="let f of DADOS" style="text-align: center">
-          <button style="height: 130px; background-color: #fff" (click)="filtrar(f.ID_PRCAT)">
-          <img [src]="f.ICONE"><br>
-          <b style="color: #ff1b55">{{f.NOME}}</b>
-          <br>
-          <br>
-        </button>
-        </ion-col>
-      </ion-row>
-
-
-    </ion-grid>
 
 
 
-  </ion-list>
+    <ion-card *ngFor="let f of DADOS" (click)="filtrar(f.ID_PRCAT)" >
+        <img [src]="'https://bom.bar/app/images/cat-programacao/' + f.ICONE" class="img-card"/>
+        <div class="card-title">{{f.NOME}}</div>
+        <!--<div class="card-subtitle">15 encontrados</div>-->
+      </ion-card>
+
+
+
 </ion-content>
