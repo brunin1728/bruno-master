@@ -65,7 +65,7 @@ console.log(this.DADOS);
 }
 
 filtrar(feed){
-  this.navCtrl.push(ProgramacaofilterPage, { dados: feed});
+  this.navCtrl.push(ProgramacaofilterPage, { ID: feed});
 }
 
   ionViewDidEnter() {

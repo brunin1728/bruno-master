@@ -18,6 +18,7 @@ export class MeusCuponsPage {
   loader: any;
   public DADOS: any;
   public DADOSL: any;
+  public DADOSU: any;
   cupom: string = "0";
   isAndroid: boolean = false;
 
@@ -54,6 +55,7 @@ export class MeusCuponsPage {
 
          this.DADOSL = objeto_retorno;
 
+console.log(this.DADOSL);
 
 this.LoadingFecha();
 
@@ -86,6 +88,7 @@ pegarCupomLoja(feed){
        const objeto_retorno = JSON.parse(response._body);
 
          this.DADOS = objeto_retorno.CUPOM;
+         this.DADOSU = objeto_retorno.CUPOMU;
 
 
 console.log(this.DADOS);
@@ -93,7 +96,7 @@ console.log(this.DADOS);
 
    },error=>{
      console.log(error);
-     this.LoadingFecha();
+     //this.LoadingFecha();
      swal("Algo deu errado...", "Por favor verifique sua internet.", "error");
    }
 

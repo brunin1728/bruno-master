@@ -21,6 +21,8 @@ export class DetalheCupomPage {
    public QTD: any;
    public PONTOS: any;
    public TITULO: any;
+   public ID: any;
+   public DESCRICAO: any;
 
   constructor(
     public navCtrl: NavController,
@@ -43,6 +45,42 @@ export class DetalheCupomPage {
 FechaCarregando(){
   this.loader.dismiss();
 }
+Detalhecupons
+
+
+
+
+detalhe(){
+  this.AbreCarregando();
+
+
+
+this.ApiProvider.Detalhecupons(this.ID).subscribe(data=>{
+ //console.log(data);
+     const response = (data as any);
+     const objeto_retorno = JSON.parse(response._body);
+
+       this.DADOS = objeto_retorno;
+
+       this.QTD = this.DADOS.QTD;
+
+//console.log(this.DADOS);
+this.FechaCarregando();
+
+ },error=>{
+   console.log(error);
+   this.FechaCarregando();
+   swal("Algo deu errado...", "Por favor verifique sua internet.", "error");
+ }
+
+
+
+)
+}
+
+
+
+
 
 trocando(id){
 
@@ -60,7 +98,15 @@ trocando(id){
 if(this.DADOS == "1"){
   swal("Parabéns! Cupom adquirido com sucesso!", {
     icon: "success",
+  }).then((willDelete) => {
+    if (willDelete) {
+      this.detalhe();
+    } else {
+      this.detalhe();
+    }
   });
+
+
 }else if(this.DADOS == "0"){
   swal("Você não tem pontos para adquirir esse voucher.", {
     icon: "error",
@@ -97,14 +143,15 @@ this.FechaCarregando();
 
   ionViewDidEnter() {
 
-    this.AbreCarregando();
+
     this.feedid = this.navParams.get("dados");
     this.IMAGEM = this.feedid.IMAGEM;
-    this.QTD = this.feedid.QTD;
     this.PONTOS = this.feedid.PONTOS;
     this.TITULO = this.feedid.TITULO;
-    this.FechaCarregando();
+    this.DESCRICAO = this.feedid.DESCRICAO;
+    this.ID = this.feedid.ID_CUP;
 
+this.detalhe();
   }
 
 

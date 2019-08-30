@@ -1,18 +1,31 @@
-<!--
-  Generated template for the ProgramacaofilterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>programacaofilter</ion-title>
+    <ion-title>Programação</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+
+  <ion-list>
+
+
+    <ion-item *ngFor="let f of DADOS" >
+      <ion-thumbnail item-start >
+          <img [src]="f.FOTO">
+      </ion-thumbnail>
+      <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
+      <p> {{f.DATA}} às {{f.HORA}} </p>
+    </ion-item>
+
+
+
+  </ion-list>
+
+
+
 
 </ion-content>

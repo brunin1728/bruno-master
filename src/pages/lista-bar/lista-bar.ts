@@ -40,14 +40,14 @@ FechaCarregando(){
   this.loader.dismiss();
 }
 
+ionViewDidEnter(){
+  this.carregarFeed();
+}
+
 doRefresh(refresher) {
   this.refresher = refresher;
   this.isRefreshing = true;
 
-  this.carregarFeed();
-}
-
-ionViewDidEnter(){
   this.carregarFeed();
 }
 

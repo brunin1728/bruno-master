@@ -30,9 +30,19 @@ cupons(){
   return this.http.get(this.baseApi + "lista-cupons");
  }
 
+ Detalhecupons(id){
+  return this.http.get(this.baseApi + "detalhe-cupon&id=" + id);
+ }
+
 
 catprogramacao(){
   return this.http.get(this.baseApi + "lista-cat-pro");
+ }
+
+programacao(id){
+  return this.http.get(this.baseApi + "lista-programacao&ID=" + id);
+
+
  }
 
  MeusPontos(){
@@ -43,6 +53,8 @@ catprogramacao(){
  MeusCupons(){
   return this.http.get(this.baseApi + "cupons-usuario&usuario=" + this.USUARIO);
  }
+
+
 
 
  ListaBares(page = 1){

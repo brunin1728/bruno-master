@@ -36,10 +36,9 @@
             <ion-list >
                 <ion-item no-lines *ngFor="let feed of DADOSL" (click)="pegarCupomLoja(feed)" class="item-cupons">
                   <ion-thumbnail item-start >
-                    <img [src]="'assets/icon/beer.png'" style="padding: 20px">
+                    <img [src]="feed.IMAGEM" style="padding: 20px">
                   </ion-thumbnail>
                   <h6>{{feed.TITULO}}</h6>
-                  <p style="color: #d01147">Não usado</p>
                 </ion-item>
               </ion-list>
 
@@ -52,7 +51,7 @@
             <ion-list >
                 <ion-item no-lines *ngFor="let feed of DADOS" (click)="pegarCupom(feed.CODDE)" class="item-cupons">
                   <ion-thumbnail item-start >
-                    <img [src]="'assets/icon/beer.png'" style="padding: 20px">
+                    <img [src]="feed.IMAGEM" style="padding: 20px">
                   </ion-thumbnail>
                   <h6>{{feed.TITULO}}</h6>
                   <p style="color: #d01147">Não usado</p>
@@ -63,12 +62,15 @@
         </ion-list>
 
         <ion-list *ngSwitchCase="'2'">
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="img/thumbnail-kitten-1.jpg">
-            </ion-thumbnail>
-            <h2>Luna</h2>
-          </ion-item>
+            <ion-list >
+                <ion-item no-lines *ngFor="let feed of DADOSU"  class="item-cupons">
+                  <ion-thumbnail item-start >
+                    <img [src]="feed.IMAGEM" style="padding: 20px">
+                  </ion-thumbnail>
+                  <h6>{{feed.TITULO}}</h6>
+                  <p style="color: #d01147">Usados</p>
+                </ion-item>
+              </ion-list>
 
         </ion-list>
       </div>

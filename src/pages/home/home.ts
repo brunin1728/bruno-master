@@ -41,6 +41,13 @@ export class HomePage {
   data = { title:'', description:'', date:'', time:'' };
   private ACESSO: any = localStorage.getItem("ACESSO");
 
+  public listafeed = new Array<any>();
+  public refresher;
+  public isRefreshing: boolean = false;
+  public page = 1;
+  public infiniteScroll;
+
+
 
   constructor(
     public navCtrl: NavController,
@@ -53,8 +60,8 @@ export class HomePage {
     public alertCtrl: AlertController
     ) {
       this.bemvindo();
-      if(this.MODO == '1'){
-
+      if(this.MODO == '0'){
+        this.carregarListaBar();
       }else{
         this.geo2();
       }
@@ -63,7 +70,53 @@ export class HomePage {
   }
 
 
+  doRefresh(refresher) {
+    this.refresher = refresher;
+    this.isRefreshing = true;
 
+    this.carregarListaBar();
+  }
+
+  doInfinite(infiniteScroll) {
+    this.page++;
+    this.infiniteScroll = infiniteScroll;
+    this.carregarListaBar(true);
+
+  }
+
+    carregarListaBar(newpage: boolean = false){
+
+      this.AbreCarregando();
+     this.ApiProvider.ListaBares().subscribe(data=>{
+
+        const response = (data as any);
+        const objeto_retorno = JSON.parse(response._body);
+        if(newpage){
+         this.listafeed =this.listafeed.concat(objeto_retorno.EMPRESAS);
+
+         this.infiniteScroll.complete();
+        }else{
+          this.listafeed = objeto_retorno.EMPRESAS;
+        }
+
+    //console.log(objeto_retorno.EMPRESAS);
+
+
+       this.FechaCarregando();
+       if(this.isRefreshing){
+         this.refresher.complete();
+         this.isRefreshing = false;
+       }
+
+    },error=>{
+      console.log(error);
+      this.FechaCarregando();
+      if(this.isRefreshing){
+        this.refresher.complete();
+        this.isRefreshing = false;
+      }
+    }
+     )}
 
 
 bemvindo(){
