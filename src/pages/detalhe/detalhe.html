@@ -5,7 +5,7 @@
   </ion-header>
 
 <ion-content>
-<ion-slides style="height: auto !important" autoplay="5000" speed="500" *ngIf="IMAGEM">
+<ion-slides style="height: 190px !important" autoplay="5000" speed="500" *ngIf="IMAGEM">
 
   <ion-slide>
     <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
@@ -24,26 +24,23 @@
 <ion-grid>
   <ion-row>
 
-    <ion-col col-4 style="text-align: center;  color: #d01147">
-
+    <ion-col col-3 style="text-align: center;  color: #d01147">
     <ion-icon name="md-call"  style="font-size: 40px;"></ion-icon>
     <p>Telefone</p>
     </ion-col>
 
-    <ion-col col-4 style="text-align: center; color: #d01147" >
-
-
-    <ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
+    <ion-col col-3 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
     <p>Mapa</p>
-
-
-
     </ion-col>
 
-    <ion-col col-4 style="text-align: center; color: #d01147" >
-
+    <ion-col col-3 style="text-align: center; color: #d01147" >
     <ion-icon name="md-paper" style="font-size: 40px;" ></ion-icon>
     <p>Feed</p>
+    </ion-col>
+
+    <ion-col col-3 style="text-align: center; color: #d01147" >
+    <ion-icon name="md-star" style="font-size: 40px;" ></ion-icon>
+    <p>5.2</p>
     </ion-col>
 
   </ion-row>

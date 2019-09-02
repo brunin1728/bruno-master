@@ -56,14 +56,11 @@ etapas(){
   if(this.IF_ETAPA == null){
      this.rootPage = InicioPage;
   }else{
-
      if(this.ETAPA == '1'){
-
     this.rootPage = CadNomeSenhaPage;
   }else if(this.ETAPA == '2'){
     this.rootPage = IndiqueamigoPage;
   }else if(this.ETAPA == '3'){
-
     this.rootPage = SlidePage;
   }else if(this.ETAPA == '4'){
     this.rootPage = HomePage;

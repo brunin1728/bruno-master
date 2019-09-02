@@ -11,33 +11,25 @@
 
 
 <ion-content padding *ngIf="MODO == 0">
-    <ion-card  *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
+  <ion-list >
 
-        <ion-item>
-          <ion-avatar item-start>
-            <img [src]="'https://bom.bar/app/images/empresas/logo/' + feed.LOGO">
-          </ion-avatar>
-          <h2>{{feed.NOME}}</h2>
-          <p>Teresópolis-RJ</p>
 
-        </ion-item>
+    <ion-item *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
+      <ion-avatar item-start>
+          <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
+      </ion-avatar>
+      <h2>{{feed.NOME}}</h2>
+      <h3>{{feed.DESCRICAO}}</h3>
+      <!--<p>I've had a pretty messed up day. If we just...</p>-->
+      <ion-avatar item-end>
+          <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
+          <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
+      </ion-avatar>
+    </ion-item>
 
-        <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
 
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-start clear small>
-              <ion-icon name="heart" style="font-size: 30px; color: #d01147;"></ion-icon>
 
-              <ion-icon name="ios-text-outline" style="font-size: 30px; "></ion-icon>
-            </button>
-          </ion-col>
-          <ion-col text-right>
-           <p><span style="font-size: 20px;  color: #d01147">{{feed.QTD_ONLINE}}</span> <ion-icon name="ios-people" style="font-size: 25px; color: #d01147"> </ion-icon></p>
-          </ion-col>
-        </ion-row>
-
-      </ion-card>
+  </ion-list>
 
       <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
