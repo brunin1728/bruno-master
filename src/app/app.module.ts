@@ -34,6 +34,8 @@ import { GeraQrPage } from '../pages/gera-qr/gera-qr';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { StarRatingModule } from 'ionic3-star-rating';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     GeraQrPage,
     ConfigPage,
     ProgramacaoPage,
-    ProgramacaofilterPage
+    ProgramacaofilterPage,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     }),
     BrMaskerModule,
     HttpModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    StarRatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -97,7 +100,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     BackgroundGeolocation,
     Geolocation,
     LocalNotifications,
-    InAppBrowser
+    InAppBrowser,
+    SocialSharing
   ]
 })
 export class AppModule {}

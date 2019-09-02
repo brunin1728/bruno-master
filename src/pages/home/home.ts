@@ -1,12 +1,15 @@
 import { DetalhePage } from './../detalhe/detalhe';
-import { Component, ViewChild } from '@angular/core';
-import { NavController, LoadingController, Platform, AlertController } from 'ionic-angular';
+import { Component, ViewChild, NgModule } from '@angular/core';
+import { NavController, LoadingController, Platform, AlertController, IonicModule } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { ApiProvider } from '../../providers/api/api';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import swal from 'sweetalert';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { StarRating } from 'ionic3-star-rating';
+import { CommonModule } from '@angular/common';
+
 
 
 declare var google;
@@ -20,6 +23,13 @@ declare var google;
   ]
 })
 
+@NgModule({
+  declarations: [ StarRating ],
+  exports: [ StarRating ],
+  imports: [
+    CommonModule, IonicModule
+  ]
+})
 
 export class HomePage {
 
@@ -61,7 +71,7 @@ export class HomePage {
     ) {
       this.bemvindo();
       if(this.MODO == '0'){
-        this.carregarListaBar();
+        this.GeoDistancia();
       }else{
         this.geo2();
       }
@@ -69,6 +79,29 @@ export class HomePage {
 
   }
 
+  GeoDistancia(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+
+     let watch = this.geolocation.watchPosition();
+     watch.subscribe((data) => {
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.latitude
+      // data.coords.longitude
+      let late = String(data.coords.latitude);
+      let longi = String(data.coords.longitude);
+
+
+      this.LATITUDE = localStorage.setItem("LATITUDE", late);
+      this.LONGITUDE = localStorage.setItem("LONGITUDE", longi);
+
+     });
+     this.carregarListaBar();
+  }
 
   detalhe(id){
     console.log(id);
@@ -98,6 +131,8 @@ export class HomePage {
 
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
+        console.log(objeto_retorno.EMPRESAS);
+
         if(newpage){
          this.listafeed =this.listafeed.concat(objeto_retorno.EMPRESAS);
 
@@ -258,8 +293,8 @@ FechaCarregando(){
 
 
 ionViewDidEnter(){
-  this.geo();
-  this.carregarFeed();
+ // this.geo();
+ // this.carregarFeed();
 
 }
 

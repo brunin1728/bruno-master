@@ -3,14 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"  class="text-colorB"></ion-icon>
     </button>
-    <ion-title><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+    <ion-title><img src="assets/imgs/logo.png" width="100px" ></ion-title>
   </ion-navbar>
 </ion-header>
 
 
 
 
-<ion-content padding *ngIf="MODO == 0">
+<ion-content  *ngIf="MODO == 0">
   <ion-list >
 
 
@@ -18,13 +18,27 @@
       <ion-avatar item-start>
           <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
       </ion-avatar>
-      <h2>{{feed.NOME}}</h2>
-      <h3>{{feed.DESCRICAO}}</h3>
-      <!--<p>I've had a pretty messed up day. If we just...</p>-->
+      <h3>{{feed.NOME}}</h3>
+
+
+
+      <h4>{{feed.DESCRICAO}}</h4>
+      <!--<p>I've had a pretty messed up day. If we just...</p>
       <ion-avatar item-end>
           <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
           <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
-      </ion-avatar>
+      </ion-avatar>-->
+
+      <ionic3-star-rating #rating item-end
+      activeIcon = "ios-star"
+      defaultIcon = "ios-star-outline"
+      activeColor = "#eaea00"
+      defaultColor = "#eaea00"
+      readonly="true"
+      [rating]="feed.NOTA"
+      fontSize = "17px"
+        class="star-list">
+  </ionic3-star-rating>
     </ion-item>
 
 

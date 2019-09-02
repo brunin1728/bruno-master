@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Component, NgModule } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, IonicModule } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { StarRating } from 'ionic3-star-rating';
+import { CommonModule } from '@angular/common';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ActionSheetController } from 'ionic-angular';
+
+
 
 
 @IonicPage()
@@ -12,6 +18,17 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ApiProvider
   ]
 })
+
+
+@NgModule({
+  declarations: [ StarRating ],
+  exports: [ StarRating ],
+  imports: [
+    CommonModule, IonicModule
+  ]
+})
+
+
 export class DetalhePage {
 
 
@@ -27,6 +44,7 @@ export class DetalhePage {
   public LONGITUDE: any;
   public ID: any;
   public IMAGEM: any;
+  public NOTA: any;
 
 
   constructor(
@@ -34,7 +52,9 @@ export class DetalhePage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private socialSharing: SocialSharing,
+    public actionSheetCtrl: ActionSheetController
     ) {
   }
 
@@ -46,6 +66,11 @@ mapa(){
 }
 
 
+
+logRatingChange(rating) {
+//DAR NOTA AO BAR
+
+}
 
 
   AbreCarregando() {
@@ -59,6 +84,16 @@ FechaCarregando(){
   this.loader.dismiss();
 }
 
+compartilhar(){
+
+  console.log("teste");
+
+  this.socialSharing.share("Partiu? Entre no app e saiba mais detalhes.", this.NOME, this.IMAGEM, 'http://bom.bar/').then(() => {
+    // Success!
+  }).catch(() => {
+    // Error!
+  });
+}
 
   ionViewDidEnter() {
     this.AbreCarregando();
@@ -71,6 +106,7 @@ FechaCarregando(){
         let retorno = (data as any)._body;
         this.feed = JSON.parse(retorno);
 
+
         this.NOME = this.feed.NOME;
         this.DESCRICAO = this.feed.DESCRICAO;
         this.ENDERECO = this.feed.ENDERECO;
@@ -78,7 +114,10 @@ FechaCarregando(){
         this.LATITUDE = this.feed.LATITUDE;
         this.LONGITUDE = this.feed.LONGITUDE;
         this.ID = this.feed.ID_EMP;
+        this.NOTA = this.feed.NOTA;
         this.IMAGEM = this.feed.IMAGEM;
+console.log(this.NOTA);
+
 
       }, error =>{
          console.log(error);

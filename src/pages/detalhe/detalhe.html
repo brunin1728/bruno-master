@@ -1,17 +1,31 @@
 <ion-header>
     <ion-navbar>
-      <ion-title ><img src="assets/imgs/logo.png" width="100px" style=""></ion-title>
+      <ion-title ><img src="assets/imgs/logo.png" width="100px"></ion-title>
     </ion-navbar>
   </ion-header>
 
+
 <ion-content>
+    <ionic3-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#eaea00"
+    defaultColor = "#eaea00"
+    readonly="false"
+    [rating]="NOTA"
+    fontSize = "28px"
+    (ratingChanged)="logRatingChange($event)" style="position: absolute;  " class="star-div" *ngIf="IMAGEM">
+</ionic3-star-rating>
+
+
 <ion-slides style="height: 190px !important" autoplay="5000" speed="500" *ngIf="IMAGEM">
 
   <ion-slide>
-    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM">
+    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM" style="width: 100%">
   </ion-slide>
 
 </ion-slides>
+<div class="div-fundo-preto"></div>
 <div padding>
 <h6 style="color: #d01147">{{NOME}}</h6>
 
@@ -21,8 +35,15 @@
 
 </ion-fab>
 
-<ion-grid>
+
+
+
+
+
+<ion-grid style="z-index: 11 !important">
   <ion-row>
+
+
 
     <ion-col col-3 style="text-align: center;  color: #d01147">
     <ion-icon name="md-call"  style="font-size: 40px;"></ion-icon>
@@ -39,8 +60,10 @@
     </ion-col>
 
     <ion-col col-3 style="text-align: center; color: #d01147" >
-    <ion-icon name="md-star" style="font-size: 40px;" ></ion-icon>
-    <p>5.2</p>
+
+    <ion-icon name="md-share" style="font-size: 40px;" (click)="compartilhar()"></ion-icon>
+    <p>Share</p>
+
     </ion-col>
 
   </ion-row>

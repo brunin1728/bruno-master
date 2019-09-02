@@ -8,6 +8,8 @@ export class ApiProvider {
   public CIDADE = "1";
   public USUARIO: any = localStorage.getItem('USUARIO');
   public TELEFONE: any = localStorage.getItem('TELEFONE');
+  public LAT: any = localStorage.getItem('LATIDUDE');
+  public LOG: any = localStorage.getItem('LONGITUDE');
 
   constructor(public http: Http) {
 
@@ -58,7 +60,7 @@ programacao(id){
 
 
  ListaBares(page = 1){
-  return this.http.get(this.baseApi + "lista-bares&cidade=" + this.CIDADE + "&page=" + page);
+  return this.http.get(this.baseApi + "lista-bares&cidade=" + this.CIDADE + "&page=" + page + "&usuario=" + this.USUARIO + "&lat=" + this.LAT + "&log=" + this.LOG);
  }
 
 

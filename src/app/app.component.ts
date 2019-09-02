@@ -50,7 +50,7 @@ etapas(){
   this.ETAPA = localStorage.getItem('ETAPA');
 
   if(this.MODO1 == null){
-    localStorage.setItem('MODO', '1');
+    localStorage.setItem('MODO', '0');
   }
 
   if(this.IF_ETAPA == null){
@@ -76,7 +76,6 @@ etapas(){
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public ApiProvider: ApiProvider,
-    private backgroundGeolocation: BackgroundGeolocation
   ) {
 
     this.etapas();
