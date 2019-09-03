@@ -36,6 +36,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StarRatingModule } from 'ionic3-star-rating';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { DetalheprogramacaoPage } from '../pages/detalheprogramacao/detalheprogramacao';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     ConfigPage,
     ProgramacaoPage,
     ProgramacaofilterPage,
+    DetalheprogramacaoPage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     GeraQrPage,
     ConfigPage,
     ProgramacaoPage,
-    ProgramacaofilterPage
+    ProgramacaofilterPage,
+    DetalheprogramacaoPage
   ],
   providers: [
     StatusBar,

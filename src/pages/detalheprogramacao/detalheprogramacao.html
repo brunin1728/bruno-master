@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"  class="text-colorB"></ion-icon>
+      </button>
+      <ion-title><img src="assets/imgs/logo.png" width="100px" ></ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content >
+<img [src]="DADOS.FOTO">
+<div padding>
+<h1> {{DADOS.TITULO}} </h1>
+<h6> {{DADOS.SUB_TITULO}} </h6>
+<h6> <b>Dia: {{DADOS.DATA}} às {{DADOS.HORA}}</b> </h6>
+
+<p> {{DADOS.DESCRICAO}} </p>
+</div>
+</ion-content>

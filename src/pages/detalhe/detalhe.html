@@ -14,7 +14,7 @@
     readonly="false"
     [rating]="NOTA"
     fontSize = "28px"
-    (ratingChanged)="logRatingChange($event)" style="position: absolute;  " class="star-div" *ngIf="IMAGEM">
+    (ratingChanged)="addnota($event)" style="position: absolute;  " class="star-div" *ngIf="IMAGEM">
 </ionic3-star-rating>
 
 
@@ -31,7 +31,8 @@
 
 
 <ion-fab top right bottom style="margin-top: 150px; ">
-  <button ion-fab color="light" ><ion-icon name="ios-heart-outline"></ion-icon></button>
+  <button ion-fab color="light" *ngIf="FAV == '2'" (click)="addfavorito()" style="background-color: #d01147"><ion-icon name="ios-heart-outline" style="color: #fff"></ion-icon></button>
+  <button ion-fab color="light" *ngIf="FAV == '1'" (click)="addfavorito()" ><ion-icon name="ios-heart-outline"></ion-icon></button>
 
 </ion-fab>
 
@@ -41,34 +42,58 @@
 
 
 <ion-grid style="z-index: 11 !important">
+  <br>
   <ion-row>
 
 
 
-    <ion-col col-3 style="text-align: center;  color: #d01147">
+    <ion-col col-4 style="text-align: center;  color: #d01147"  (click)="telefone()">
     <ion-icon name="md-call"  style="font-size: 40px;"></ion-icon>
     <p>Telefone</p>
     </ion-col>
 
-    <ion-col col-3 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
+    <ion-col col-4 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
     <p>Mapa</p>
     </ion-col>
 
-    <ion-col col-3 style="text-align: center; color: #d01147" >
+   <!-- <ion-col col-3 style="text-align: center; color: #d01147" >
     <ion-icon name="md-paper" style="font-size: 40px;" ></ion-icon>
     <p>Feed</p>
-    </ion-col>
+    </ion-col>-->
 
-    <ion-col col-3 style="text-align: center; color: #d01147" >
+    <ion-col col-4 style="text-align: center; color: #d01147; z-index: 55" (click)="compartilhar()">
 
-    <ion-icon name="md-share" style="font-size: 40px;" (click)="compartilhar()"></ion-icon>
-    <p>Share</p>
+    <ion-icon name="md-share" style="font-size: 40px;" ></ion-icon>
+    <p>Compartilhar</p>
 
     </ion-col>
 
   </ion-row>
 </ion-grid>
 
+
+
+
+
+<h5 style="color: #d01147">Programação de hoje</h5>
+<ion-list *ngIf="pro">
+
+
+  <ion-item *ngFor="let f of pro" (click)="verevento(f)">
+    <ion-thumbnail item-start >
+        <img [src]="f.FOTO">
+    </ion-thumbnail>
+    <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
+    <p> Hora: {{f.HORA}} </p>
+  </ion-item>
+
+
+
+</ion-list>
+
+<p *ngIf="status == '1'" style="color: #d01147">
+Nenhuma programação cadastrada
+</p>
 
 
 </div>

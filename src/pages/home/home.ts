@@ -47,6 +47,11 @@ export class HomePage {
   public log: any;
   public retorno: any;
   public MODO: any = localStorage.getItem("MODO");
+  cupom: string = "0";
+  isAndroid: boolean = false;
+  public FAVORITOS: any;
+
+
 
   data = { title:'', description:'', date:'', time:'' };
   private ACESSO: any = localStorage.getItem("ACESSO");
@@ -139,9 +144,10 @@ export class HomePage {
          this.infiniteScroll.complete();
         }else{
           this.listafeed = objeto_retorno.EMPRESAS;
-        }
 
-    //console.log(objeto_retorno.EMPRESAS);
+        }
+this.FAVORITOS = objeto_retorno.FAVORITOS;
+    console.log(objeto_retorno);
 
 
        this.FechaCarregando();

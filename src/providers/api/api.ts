@@ -57,7 +57,13 @@ programacao(id){
  }
 
 
+ favorito(empresa){
+  return this.http.get(this.baseApi + "add-favorito&usuario=" + this.USUARIO + "&empresa=" + empresa);
+ }
 
+ nota(empresa,nota){
+  return this.http.get(this.baseApi + "add-nota&usuario=" + this.USUARIO + "&empresa=" + empresa + "&nota=" + nota);
+ }
 
  ListaBares(page = 1){
   return this.http.get(this.baseApi + "lista-bares&cidade=" + this.CIDADE + "&page=" + page + "&usuario=" + this.USUARIO + "&lat=" + this.LAT + "&log=" + this.LOG);
@@ -65,7 +71,7 @@ programacao(id){
 
 
  DetalhesBar(bar){
-  return this.http.get(this.baseApi + "detalhe-bar&id=" + bar);
+  return this.http.get(this.baseApi + "detalhe-bar&id=" + bar + "&usuario=" + this.USUARIO);
  }
 
 

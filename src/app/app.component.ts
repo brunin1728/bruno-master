@@ -86,8 +86,8 @@ etapas(){
       { title: 'Início', component: HomePage },
       { title: 'Programação', component: ProgramacaoPage },
       { title: 'Perfil', component: PerfilPage },
-      { title: 'Lista Bares', component: ListaBarPage },
-      { title: 'Loja', component: MeusCuponsPage },
+     // { title: 'Lista Bares', component: ListaBarPage },
+    //  { title: 'Loja', component: MeusCuponsPage },
       { title: 'Configuração', component: ConfigPage },
     ];
 

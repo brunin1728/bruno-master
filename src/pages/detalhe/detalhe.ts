@@ -6,6 +6,7 @@ import { StarRating } from 'ionic3-star-rating';
 import { CommonModule } from '@angular/common';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
+import { DetalheprogramacaoPage } from '../detalheprogramacao/detalheprogramacao';
 
 
 
@@ -35,6 +36,7 @@ export class DetalhePage {
   public loader;
   public feedid: any;
   public feed: any;
+  public pro: any;
 
   public NOME: any;
   public DESCRICAO: any;
@@ -45,6 +47,9 @@ export class DetalhePage {
   public ID: any;
   public IMAGEM: any;
   public NOTA: any;
+  public status: any = 0;
+  public RETORNO1: any;
+  public FAV: any;
 
 
   constructor(
@@ -65,7 +70,55 @@ mapa(){
   const browser = this.iab.create(location, '_system');
 }
 
+addfavorito(){
+  this.feedid = this.navParams.get("id");
 
+
+
+  this.ApiProvider.favorito(this.feedid).subscribe(
+    data=>{
+      let retorno = (data as any)._body;
+      this.RETORNO1 = JSON.parse(retorno);
+
+
+      if(this.RETORNO1.STATUS == '1'){
+          this.FAV = 1;
+      }else{
+        this.FAV = 2;
+      }
+console.log(this.RETORNO1);
+
+    }, error =>{
+       console.log(error);
+    }
+  )
+
+}
+
+addnota(n){
+  this.feedid = this.navParams.get("id");
+
+
+
+  this.ApiProvider.nota(this.feedid,n).subscribe(
+    data=>{
+      let retorno = (data as any)._body;
+      this.RETORNO1 = JSON.parse(retorno);
+
+
+      if(this.RETORNO1.STATUS == '1'){
+
+      }else{
+
+      }
+
+
+    }, error =>{
+       console.log(error);
+    }
+  )
+
+}
 
 logRatingChange(rating) {
 //DAR NOTA AO BAR
@@ -84,15 +137,35 @@ FechaCarregando(){
   this.loader.dismiss();
 }
 
+telefone(){
+
+
+
+}
+
+
+
+
+verevento(id){
+  this.navCtrl.push(DetalheprogramacaoPage, { id: id});
+}
+
+
+
+
+
 compartilhar(){
 
-  console.log("teste");
+let img = 'https://bom.bar/app/images/empresas/fotos/' + this.IMAGEM;
 
-  this.socialSharing.share("Partiu? Entre no app e saiba mais detalhes.", this.NOME, this.IMAGEM, 'http://bom.bar/').then(() => {
+  this.socialSharing.share("Partiu? Entre no app e saiba mais detalhes.", this.NOME, img, 'http://bom.bar/').then(() => {
     // Success!
   }).catch(() => {
     // Error!
   });
+
+
+
 }
 
   ionViewDidEnter() {
@@ -106,6 +179,9 @@ compartilhar(){
         let retorno = (data as any)._body;
         this.feed = JSON.parse(retorno);
 
+        this.pro = this.feed.PRO;
+        this.feed = this.feed.EMPRESAS[0];
+
 
         this.NOME = this.feed.NOME;
         this.DESCRICAO = this.feed.DESCRICAO;
@@ -115,9 +191,15 @@ compartilhar(){
         this.LONGITUDE = this.feed.LONGITUDE;
         this.ID = this.feed.ID_EMP;
         this.NOTA = this.feed.NOTA;
+        this.FAV = this.feed.FAVORITO;
         this.IMAGEM = this.feed.IMAGEM;
-console.log(this.NOTA);
+console.log(this.feed);
 
+if(this.pro == undefined){
+this.status = 1;
+}else{
+  this.status = 2;
+}
 
       }, error =>{
          console.log(error);

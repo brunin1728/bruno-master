@@ -11,7 +11,98 @@
 
 
 <ion-content  *ngIf="MODO == 0">
-  <ion-list >
+
+    <div [ngSwitch]="cupom">
+    <div >
+        <ion-segment [(ngModel)]="cupom">
+          <ion-segment-button value="0" class="tab">
+            Todos
+          </ion-segment-button>
+          <ion-segment-button value="1" class="tab">
+            Favoritos
+          </ion-segment-button>
+        </ion-segment>
+
+        <br>
+      </div>
+
+
+
+
+<!--
+<h3 class="ion-label" style="margin-left: 15px">Favoritos</h3>
+    <ion-scroll id="teste" scrollX="true" style="white-space: nowrap; height: 260px;" class="caixa-scrol">
+
+
+
+        <button  *ngFor="let l of listafeed"  style="width: 240px; height: auto ; background-color: transparent; margin-right: 15px; "  >
+
+
+            <ion-card style="width: 240px;" >
+                <img [src]="'https://bom.bar/app/images/empresas/fotos/' + l.IMAGEM" style="object-fit: cover; height: 150px">
+                <ion-card-content >
+                  <h3> {{l.NOME}}</h3>
+ <ionic3-star-rating #rating
+              activeIcon = "ios-star"
+              defaultIcon = "ios-star-outline"
+              activeColor = "#eaea00"
+              defaultColor = "#eaea00"
+              readonly="true"
+              [rating]="l.NOTA"
+              fontSize = "17px"
+              >
+          </ionic3-star-rating>
+                </ion-card-content>
+
+              </ion-card>
+
+
+
+
+
+
+        </button>
+
+
+   </ion-scroll>
+
+  -->
+  <ion-list *ngSwitchCase="'1'">
+
+
+      <ion-item *ngFor="let feed of FAVORITOS" (click)="detalhe(feed.ID_EMP)">
+        <ion-avatar item-start>
+            <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
+        </ion-avatar>
+        <h3>{{feed.NOME}}</h3>
+
+
+
+        <h4>{{feed.DESCRICAO}}</h4>
+        <!--<p>I've had a pretty messed up day. If we just...</p>
+        <ion-avatar item-end>
+            <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
+            <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
+        </ion-avatar>-->
+
+        <ionic3-star-rating #rating item-end
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "#eaea00"
+        defaultColor = "#eaea00"
+        readonly="true"
+        [rating]="feed.NOTA"
+        fontSize = "17px"
+          class="star-list">
+    </ionic3-star-rating>
+      </ion-item>
+
+
+
+    </ion-list>
+
+
+  <ion-list *ngSwitchCase="'0'">
 
 
     <ion-item *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
@@ -45,9 +136,12 @@
 
   </ion-list>
 
-      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngSwitchCase="'0'">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
+
+
+    </div>
 </ion-content>
 
 
