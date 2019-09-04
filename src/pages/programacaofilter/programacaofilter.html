@@ -15,7 +15,7 @@
 
     <ion-item *ngFor="let f of DADOS" >
       <ion-thumbnail item-start >
-          <img [src]="f.FOTO">
+          <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
       </ion-thumbnail>
       <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
       <p> {{f.DATA}} às {{f.HORA}} </p>

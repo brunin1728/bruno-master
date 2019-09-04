@@ -81,7 +81,7 @@
 
   <ion-item *ngFor="let f of pro" (click)="verevento(f)">
     <ion-thumbnail item-start >
-        <img [src]="f.FOTO">
+        <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
     </ion-thumbnail>
     <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
     <p> Hora: {{f.HORA}} </p>
