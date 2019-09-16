@@ -25,6 +25,10 @@
   </ion-slide>
 
 </ion-slides>
+
+
+
+
 <div class="div-fundo-preto"></div>
 <div padding>
 <h6 style="color: #d01147">{{NOME}}</h6>
@@ -47,29 +51,42 @@
 
 
 
-    <ion-col col-4 style="text-align: center;  color: #d01147"  (click)="telefone()">
+    <ion-col col-3 style="text-align: center;  color: #d01147"  (click)="telefone()">
     <ion-icon name="md-call"  style="font-size: 40px;"></ion-icon>
     <p>Telefone</p>
     </ion-col>
 
-    <ion-col col-4 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
+    <ion-col col-3 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
     <p>Mapa</p>
     </ion-col>
 
-   <!-- <ion-col col-3 style="text-align: center; color: #d01147" >
-    <ion-icon name="md-paper" style="font-size: 40px;" ></ion-icon>
-    <p>Feed</p>
-    </ion-col>-->
+   <ion-col col-3 style="text-align: center; color: #d01147" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" >
+    <ion-icon name="md-information-circle" style="font-size: 40px;" ></ion-icon>
+    <p>Info</p>
+    </ion-col>
 
-    <ion-col col-4 style="text-align: center; color: #d01147; z-index: 55" (click)="compartilhar()">
+    <ion-col col-3 style="text-align: center; color: #d01147; z-index: 55" (click)="compartilhar()">
 
     <ion-icon name="md-share" style="font-size: 40px;" ></ion-icon>
-    <p>Compartilhar</p>
+    <p>Share</p>
 
     </ion-col>
 
   </ion-row>
 </ion-grid>
+
+
+
+
+
+
+
+<div class="collapse" id="collapseExample">
+<div class="card card-body" style="border: 1px solid rgba(208, 17, 71,0.1)">
+  <div [innerHTML]="DESCRICAO" style="color: #d01147;"></div>
+</div>
+</div>
+
 
 
 
