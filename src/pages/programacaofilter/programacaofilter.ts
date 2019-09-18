@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import swal from 'sweetalert';
 import { ApiProvider } from '../../providers/api/api';
+import { DetalheprogramacaoPage } from '../detalheprogramacao/detalheprogramacao';
 
 
 @IonicPage()
@@ -32,6 +33,15 @@ export class ProgramacaofilterPage {
   LoadingFecha(){
   this.loader.dismiss();
   }
+
+
+  verevento(id){
+    this.navCtrl.push(DetalheprogramacaoPage, { id: id});
+  }
+
+
+
+
 
 ListaPro(){
     //CADASTRANDO DADOS

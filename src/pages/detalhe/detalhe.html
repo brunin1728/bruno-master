@@ -18,10 +18,10 @@
 </ionic3-star-rating>
 
 
-<ion-slides style="height: 190px !important" autoplay="5000" speed="500" *ngIf="IMAGEM">
+<ion-slides style="height: 190px !important; margin-top: -5px" autoplay="5000" speed="500" *ngIf="IMAGEM">
 
-  <ion-slide>
-    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + IMAGEM" style="width: 100%">
+  <ion-slide *ngFor="let f of FOTOS">
+    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + f.IMAGEM" style="width: 100%; ">
   </ion-slide>
 
 </ion-slides>
@@ -92,7 +92,7 @@
 
 
 
-<h5 style="color: #d01147">Programação de hoje</h5>
+<h5 style="color: #d01147">Programação</h5>
 <ion-list *ngIf="pro">
 
 
@@ -101,7 +101,7 @@
         <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
     </ion-thumbnail>
     <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
-    <p> Hora: {{f.HORA}} </p>
+    <p> Dia {{f.DATA}} à {{f.HORA}} </p>
   </ion-item>
 
 

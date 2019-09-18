@@ -50,6 +50,7 @@ export class DetalhePage {
   public status: any = 0;
   public RETORNO1: any;
   public FAV: any;
+  public FOTOS: any;
 
 
   constructor(
@@ -158,7 +159,7 @@ compartilhar(){
 
 let img = 'https://bom.bar/app/images/empresas/fotos/' + this.IMAGEM;
 
-  this.socialSharing.share("Partiu? Entre no app e saiba mais detalhes.", this.NOME, img, 'http://bom.bar/').then(() => {
+  this.socialSharing.shareViaWhatsApp(this.NOME, img, 'http://bom.bar/').then(() => {
     // Success!
   }).catch(() => {
     // Error!
@@ -180,6 +181,7 @@ let img = 'https://bom.bar/app/images/empresas/fotos/' + this.IMAGEM;
         this.feed = JSON.parse(retorno);
 
         this.pro = this.feed.PRO;
+        this.FOTOS = this.feed.FOTOS;
         this.feed = this.feed.EMPRESAS[0];
 
 

@@ -13,7 +13,7 @@
   <ion-list>
 
 
-    <ion-item *ngFor="let f of DADOS" >
+    <ion-item *ngFor="let f of DADOS" (click)="verevento(f)">
       <ion-thumbnail item-start >
           <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
       </ion-thumbnail>
