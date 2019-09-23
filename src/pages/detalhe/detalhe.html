@@ -18,10 +18,10 @@
 </ionic3-star-rating>
 
 
-<ion-slides style="height: 190px !important; margin-top: -5px" autoplay="5000" speed="500" *ngIf="IMAGEM">
+<ion-slides style="height: 190px !important; margin-top: -5px;" autoplay="5000" speed="500" *ngIf="IMAGEM">
 
   <ion-slide *ngFor="let f of FOTOS">
-    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + f.IMAGEM" style="width: 100%; ">
+    <img [src]="'https://bom.bar/app/images/empresas/fotos/' + f.IMAGEM" style="width: 100%; height: 100%">
   </ion-slide>
 
 </ion-slides>
@@ -98,7 +98,7 @@
 
   <ion-item *ngFor="let f of pro" (click)="verevento(f)">
     <ion-thumbnail item-start >
-        <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
+        <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO" >
     </ion-thumbnail>
     <h2> {{f.TITULO}} - {{f.SUB_TITULO}}</h2>
     <p> Dia {{f.DATA}} à {{f.HORA}} </p>

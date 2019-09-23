@@ -54,7 +54,35 @@ ListaPro(){
        const response = (data as any);
        const objeto_retorno = JSON.parse(response._body);
 
-         this.DADOS = objeto_retorno;
+         this.DADOS = objeto_retorno.PRO;
+
+
+
+
+   },error=>{
+     console.log(error);
+     this.LoadingFecha();
+     swal("Algo deu errado...", "Por favor verifique sua internet.", "error");
+   }
+
+
+
+  )
+}
+
+
+ListaProTodos(){
+    //CADASTRANDO DADOS
+ //this.LoadingAbre();
+
+
+
+  this.ApiProvider.programacaot().subscribe(data=>{
+   //console.log(data);
+       const response = (data as any);
+       const objeto_retorno = JSON.parse(response._body);
+
+         this.DADOS = objeto_retorno.PRO;
 console.log(this.DADOS);
 
 
@@ -75,7 +103,15 @@ filtrar(feed){
 }
 
   ionViewDidEnter() {
-this.ListaPro();
+
+    if(this.ID == 0){
+      this.ListaProTodos();
+    }else{
+      this.ListaPro();
+    }
+
+
+
   }
 
 

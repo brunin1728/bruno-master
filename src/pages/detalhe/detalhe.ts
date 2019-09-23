@@ -51,6 +51,7 @@ export class DetalhePage {
   public RETORNO1: any;
   public FAV: any;
   public FOTOS: any;
+  public TELEFONE: any;
 
 
   constructor(
@@ -140,7 +141,8 @@ FechaCarregando(){
 
 telefone(){
 
-
+  window.open('tel:' + this.TELEFONE, '_system', 'location=yes')
+console.log(this.TELEFONE);
 
 }
 
@@ -195,7 +197,8 @@ let img = 'https://bom.bar/app/images/empresas/fotos/' + this.IMAGEM;
         this.NOTA = this.feed.NOTA;
         this.FAV = this.feed.FAVORITO;
         this.IMAGEM = this.feed.IMAGEM;
-
+        this.TELEFONE = this.feed.TELEFONE;
+        console.log(this.TELEFONE);
 
 if(this.pro == undefined){
 this.status = 1;

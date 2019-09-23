@@ -47,6 +47,12 @@ programacao(id){
 
  }
 
+programacaot(){
+  return this.http.get(this.baseApi + "lista-programacao-todos");
+
+
+ }
+
  MeusPontos(){
   return this.http.get(this.baseApi + "pontos-usuario&telefone=" + this.TELEFONE);
  }
