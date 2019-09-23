@@ -195,7 +195,7 @@ let img = 'https://bom.bar/app/images/empresas/fotos/' + this.IMAGEM;
         this.NOTA = this.feed.NOTA;
         this.FAV = this.feed.FAVORITO;
         this.IMAGEM = this.feed.IMAGEM;
-console.log(this.feed);
+
 
 if(this.pro == undefined){
 this.status = 1;
