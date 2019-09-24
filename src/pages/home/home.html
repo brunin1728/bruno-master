@@ -10,7 +10,7 @@
 
 
 
-<ion-content  *ngIf="MODO == 0">
+<ion-content  *ngIf="MODO == 0" class="fundo-geral">
 
     <div [ngSwitch]="cupom">
     <div >
@@ -67,10 +67,10 @@
    </ion-scroll>
 
   -->
-  <ion-list *ngSwitchCase="'1'">
+  <ion-list *ngSwitchCase="'1'" >
 
 
-      <ion-item *ngFor="let feed of FAVORITOS" (click)="detalhe(feed.ID_EMP)">
+      <ion-item *ngFor="let feed of FAVORITOS" (click)="detalhe(feed.ID_EMP)" class="fundo-geral">
         <ion-avatar item-start>
             <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
         </ion-avatar>
@@ -102,11 +102,11 @@
     </ion-list>
 
 
-  <ion-list *ngSwitchCase="'0'">
+  <ion-list *ngSwitchCase="'0'" class="fundo-geral" no-lines>
 
 
-    <ion-item *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)">
-      <ion-avatar item-start>
+    <ion-item *ngFor="let feed of listafeed" (click)="detalhe(feed.ID_EMP)" class="fundo-geral-item" >
+      <ion-avatar item-start >
           <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
       </ion-avatar>
       <h3>{{feed.NOME}}</h3>

@@ -1,3 +1,4 @@
+import { CadtelefonefacePage } from './../pages/cadtelefoneface/cadtelefoneface';
 import { ProgramacaofilterPage } from './../pages/programacaofilter/programacaofilter';
 import { ProgramacaoPage } from './../pages/programacao/programacao';
 import { ConfigPage } from './../pages/config/config';
@@ -37,6 +38,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StarRatingModule } from 'ionic3-star-rating';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { DetalheprogramacaoPage } from '../pages/detalheprogramacao/detalheprogramacao';
+import { Facebook } from '@ionic-native/facebook';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +62,8 @@ import { DetalheprogramacaoPage } from '../pages/detalheprogramacao/detalheprogr
     ConfigPage,
     ProgramacaoPage,
     ProgramacaofilterPage,
-    DetalheprogramacaoPage
+    DetalheprogramacaoPage,
+    CadtelefonefacePage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +96,8 @@ import { DetalheprogramacaoPage } from '../pages/detalheprogramacao/detalheprogr
     ConfigPage,
     ProgramacaoPage,
     ProgramacaofilterPage,
-    DetalheprogramacaoPage
+    DetalheprogramacaoPage,
+    CadtelefonefacePage
   ],
   providers: [
     StatusBar,
@@ -104,7 +109,8 @@ import { DetalheprogramacaoPage } from '../pages/detalheprogramacao/detalheprogr
     Geolocation,
     LocalNotifications,
     InAppBrowser,
-    SocialSharing
+    SocialSharing,
+    Facebook
   ]
 })
 export class AppModule {}

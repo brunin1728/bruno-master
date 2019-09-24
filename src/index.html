@@ -21,16 +21,66 @@
 
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="build/main.css" rel="stylesheet">
+
+<style>
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-top: 60%;
+  margin-left: 40%;
+
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background: #ff1b55;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 6px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 45px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 6px;
+    height: 51px;
+  }
+  50%, 100% {
+    top: 19px;
+    height: 26px;
+  }
+}
+
+</style>
+
+
 <style>
   .label2 {
     color: #fff !important;
   }
 </style>
 </head>
-<body>
+<body style="background-color: #343434!important">
 
   <!-- Ionic's root component and where the app will load -->
-  <ion-app></ion-app>
+  <ion-app style="background-color: #343434!important">
+
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+
+
+  </ion-app>
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyCvuiGNcyrBfzKjycfw1NHZa1-uEPrrjr4"></script>
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>

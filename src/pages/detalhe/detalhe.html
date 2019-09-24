@@ -5,7 +5,7 @@
   </ion-header>
 
 
-<ion-content>
+<ion-content class="fundo-geral">
     <ionic3-star-rating #rating
     activeIcon = "ios-star"
     defaultIcon = "ios-star-outline"
@@ -31,7 +31,7 @@
 
 <div class="div-fundo-preto"></div>
 <div padding>
-<h6 style="color: #d01147">{{NOME}}</h6>
+<h5 style="color: #fff">{{NOME}}</h5>
 
 
 <ion-fab top right bottom style="margin-top: 150px; ">
@@ -53,22 +53,22 @@
 
     <ion-col col-3 style="text-align: center;  color: #d01147"  (click)="telefone()">
     <ion-icon name="md-call"  style="font-size: 40px;"></ion-icon>
-    <p>Telefone</p>
+    <p style="color: #fff">Telefone</p>
     </ion-col>
 
     <ion-col col-3 style="text-align: center; color: #d01147" ><ion-icon name="md-map"  style="font-size: 40px;" (click)="mapa()"></ion-icon>
-    <p>Mapa</p>
+    <p style="color: #fff">Mapa</p>
     </ion-col>
 
    <ion-col col-3 style="text-align: center; color: #d01147" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" >
     <ion-icon name="md-information-circle" style="font-size: 40px;" ></ion-icon>
-    <p>Info</p>
+    <p style="color: #fff">Info</p>
     </ion-col>
 
     <ion-col col-3 style="text-align: center; color: #d01147; z-index: 55" (click)="compartilhar()">
 
     <ion-icon name="md-share" style="font-size: 40px;" ></ion-icon>
-    <p>Share</p>
+    <p style="color: #fff">Share</p>
 
     </ion-col>
 
@@ -83,7 +83,7 @@
 
 <div class="collapse" id="collapseExample">
 <div class="card card-body" style="border: 1px solid rgba(208, 17, 71,0.1)">
-  <div [innerHTML]="DESCRICAO" style="color: #d01147;"></div>
+  <div [innerHTML]="DESCRICAO" style="color: #fff;"></div>
 </div>
 </div>
 
@@ -92,11 +92,11 @@
 
 
 
-<h5 style="color: #d01147">Programação</h5>
+<h5 style="color: #fff">Programação</h5>
 <ion-list *ngIf="pro">
 
 
-  <ion-item *ngFor="let f of pro" (click)="verevento(f)">
+  <ion-item *ngFor="let f of pro" (click)="verevento(f)" class="fundo-geral-item">
     <ion-thumbnail item-start >
         <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO" >
     </ion-thumbnail>
@@ -108,7 +108,7 @@
 
 </ion-list>
 
-<p *ngIf="status == '1'" style="color: #d01147">
+<p *ngIf="status == '1'" style="color: #fff">
 Nenhuma programação cadastrada
 </p>
 

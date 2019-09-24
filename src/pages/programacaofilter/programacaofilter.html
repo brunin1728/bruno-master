@@ -7,13 +7,13 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="fundo-geral">
 
 
   <ion-list>
 
 
-    <ion-item *ngFor="let f of DADOS" (click)="verevento(f)">
+    <ion-item *ngFor="let f of DADOS" (click)="verevento(f)" class="fundo-geral-item">
       <ion-thumbnail item-start >
           <img [src]="'http://bom.bar/app/images/programacao/' + f.FOTO">
       </ion-thumbnail>

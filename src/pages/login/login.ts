@@ -63,7 +63,7 @@ if(this.DADOS.STATUS == '1'){
   localStorage.setItem("TELEFONE", this.DADOS.TELEFONE);
   localStorage.setItem("NOME", this.DADOS.NOME);
   localStorage.setItem("USUARIO", this.DADOS.ID);
-  localStorage.setItem("FOTO", this.DADOS.FOTO);
+  localStorage.setItem("FOTO", "http://bom.bar/app/images/usuarios/" + this.DADOS.FOTO);
   localStorage.setItem("ETAPA", "4");
   window.location.reload();
 

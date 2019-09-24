@@ -5,11 +5,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="fundo-geral">
     <br>
-      <ion-item>
+      <ion-item class="fundo-geral-item">
           <ion-avatar item-start>
-            <img [src]="'https://bom.bar/app/images/usuarios/' + FOTO_PERFIL" >
+            <img [src]="FOTO_PERFIL" >
           </ion-avatar>
           <h2><b>{{NOME}}</b></h2>
           <p style="color: #d01147">Lendário <ion-icon name="md-flash"></ion-icon></p>
@@ -18,7 +18,7 @@
 
 
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="fundo-geral-item">
        {{p.title}}  <b><ion-icon name="ios-arrow-forward-outline" style="float: right; color: #d01147;"></ion-icon></b>
       </button>
     </ion-list>

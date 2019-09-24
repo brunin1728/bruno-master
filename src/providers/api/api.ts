@@ -27,6 +27,11 @@ VerificaTel(telefone){
  }
 
 
+VerificaTelFace(telefone){
+  return this.http.get(this.baseApi + "verifica-tel-face&telefone=" + telefone + "&id=" + this.USUARIO);
+ }
+
+
 
 cupons(){
   return this.http.get(this.baseApi + "lista-cupons");
@@ -93,6 +98,11 @@ programacaot(){
 
  VerificarUsuario(usuario,senha){
   return this.http.get(this.baseApi + "verificar-usuario&usuario=" + usuario + "&senha=" + senha);
+ }
+
+
+ VerificarUsuarioFacebook(id,name){
+  return this.http.get(this.baseApi + "verificar-usuario-facebook&id=" + id + "&name="+ name);
  }
 
 

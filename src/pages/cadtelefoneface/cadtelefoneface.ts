@@ -1,3 +1,5 @@
+import { SlidePage } from './../slide/slide';
+import { IndiqueamigoPage } from './../indiqueamigo/indiqueamigo';
 import { CadNomeSenhaPage } from './../cad-nome-senha/cad-nome-senha';
 import { Component, NgModule } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -13,11 +15,11 @@ import swal from 'sweetalert';
 
 @IonicPage()
 @Component({
-  selector: 'page-cad-tel',
-  templateUrl: 'cad-tel.html',
+  selector: 'page-cadtelefoneface',
+  templateUrl: 'cadtelefoneface.html',
 })
 
-export class CadTelPage {
+export class CadtelefonefacePage {
 
    public TELEFONE = this.navParams.get('TELEFONE');
    loader: any;
@@ -50,7 +52,7 @@ export class CadTelPage {
 
 
 
-  this.ApiProvider.VerificaTel(telefone).subscribe(data=>{
+  this.ApiProvider.VerificaTelFace(telefone).subscribe(data=>{
    //console.log(data);
        const response = (data as any);
        const objeto_retorno = JSON.parse(response._body);
@@ -71,9 +73,8 @@ if(this.RETORNO == '1'){
 }else{
 
  localStorage.setItem("ETAPA", "1");
- localStorage.setItem("FOTO", "http://bom.bar/app/images/usuarios/perfil.jpg");
  localStorage.setItem("TELEFONE", this.TELEFONE);
- this.navCtrl.setRoot(CadNomeSenhaPage);
+ this.navCtrl.setRoot(SlidePage);
  this.LoadingFecha();
 
 }

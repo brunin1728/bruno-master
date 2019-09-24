@@ -8,12 +8,13 @@
   </ion-header>
 
 
-<ion-content >
+<ion-content class="fundo-geral" style="color: #fff">
 <img [src]="'http://bom.bar/app/images/programacao/' + DADOS.FOTO">
 <div padding>
 <h1> {{DADOS.TITULO}} </h1>
 <h6> {{DADOS.SUB_TITULO}} </h6>
 <h6> <b>Dia: {{DADOS.DATA}} às {{DADOS.HORA}}</b> </h6>
+<h6> <b>Local:</b> {{DADOS.LOCAL}} </h6>
 
 
 <div [innerHTML]="DADOS.DESCRICAO"></div>
