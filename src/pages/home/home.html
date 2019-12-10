@@ -70,32 +70,37 @@
   <ion-list *ngSwitchCase="'1'" >
 
 
-      <ion-item *ngFor="let feed of FAVORITOS" (click)="detalhe(feed.ID_EMP)" class="fundo-geral">
-        <ion-avatar item-start>
-            <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
-        </ion-avatar>
-        <h3>{{feed.NOME}}</h3>
+
+    <ion-item *ngFor="let feed of FAVORITOS" (click)="detalhe(feed.ID_EMP)" class="fundo-geral-item" >
+      <ion-avatar item-start >
+          <img [src]="'https://bom.bar/app/images/empresas/fotos/' + feed.IMAGEM">
+      </ion-avatar>
+      <h3>{{feed.NOME}}</h3>
+
+
+      <p [innerHTML]="feed.BREVE_DESC"></p>
 
 
 
-        <p [innerHTML]="feed.BREVE_DESC"></p>
-        <!--<p>I've had a pretty messed up day. If we just...</p>
-        <ion-avatar item-end>
-            <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
-            <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
-        </ion-avatar>-->
 
-        <ionic3-star-rating #rating item-end
-        activeIcon = "ios-star"
-        defaultIcon = "ios-star-outline"
-        activeColor = "#eaea00"
-        defaultColor = "#eaea00"
-        readonly="true"
-        [rating]="feed.NOTA"
-        fontSize = "17px"
-          class="star-list">
-    </ionic3-star-rating>
-      </ion-item>
+
+      <!--<p>I've had a pretty messed up day. If we just...</p>
+      <ion-avatar item-end>
+          <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA" > {{feed.NOTA}}</ion-icon>
+          <ion-icon name="ios-star" class="star-emp-list" *ngIf="feed.NOTA == ''" > s/ nota</ion-icon>
+      </ion-avatar>-->
+
+      <ionic3-star-rating #rating item-end
+      activeIcon = "ios-star"
+      defaultIcon = "ios-star-outline"
+      activeColor = "#eaea00"
+      defaultColor = "#eaea00"
+      readonly="true"
+      [rating]="feed.NOTA"
+      fontSize = "17px"
+        class="star-list">
+  </ionic3-star-rating>
+    </ion-item>
 
 
 
